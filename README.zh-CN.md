@@ -30,6 +30,25 @@
 | 其他语言 | [繁體中文](docs/zh-TW/tutorial/README.md) · [한국어](docs/ko-KR/tutorial/README.md) · [日本語](docs/ja-JP/tutorial/README.md) · [Türkçe](docs/tr/tutorial/README.md) · [Português (BR)](docs/pt-BR/tutorial/README.md) |
 | 了解上游与生态 | 下文徽章与发行说明对应 **Everything Claude Code** 开源生态；本 README **以学习路径优先**，再深入组件与指南。 |
 
+### 使用 ECC 时的常见痛点
+
+- **概念分散** — Skill、Command、Agent、Hook、Rule、MCP 分属不同目录，缺少「先读什么、彼此如何串联」的默认真题路线。  
+- **多 harness 并存** — 同一仓库里同时有 `.claude/`、`.cursor/`、`.opencode/`、`.codex-plugin/`、`.trae/`、`.kiro/` 等，**各工具加载方式不同**，从一种环境照搬配置到另一种往往行不通。  
+- **缺一条最短工作流** — 上游与外网指南篇幅大，若不知道 `/plan` → `/tdd` → `/code-review` 等资源，很容易退回「纯长对话」，弱化斜杠命令与子代理。  
+- **静默不生效** — Hook、Rule 在某 IDE 下可能不跑，表现像「装了 ECC 却没反应」，需要知道去哪排查。  
+- **安全与密钥** — MCP、脚本增多后暴露面变大；容易误配 token，或误以为「装上插件 = 已过安全审计」。
+
+### 本仓库加入 **eccl（every-claude-code-learning）** 学习层后，能帮你什么
+
+学习层**不替代** ECC 本体，而是在**本仓库内帮你落地**：
+
+| 你能得到 | 方式 |
+|----------|------|
+| **固定学习顺序** | [简体中文 8 篇教程](docs/zh-CN/tutorial/README.md)（含实验）及 [多语言 tutorial](docs/zh-CN/tutorial/README.md#其他语言版本与简体同步结构)；对照 [COMMAND-AGENT-MAP](docs/COMMAND-AGENT-MAP.md) 弄清命令与 Agent。 |
+| **心智模型** | 把六大构件与 `agents/`、`skills/`、`commands/`、`hooks/`、`rules/`、`mcp-configs/` 等目录一一对应，减少「翻目录像迷宫」。 |
+| **各工具入口索引** | 在子目录有说明的（如 [`.opencode/README.md`](.opencode/README.md)、[`.trae/README.zh-CN.md`](.trae/README.zh-CN.md)、[`.kiro/README.md`](.kiro/README.md)、[`.codex-plugin/README.md`](.codex-plugin/README.md)）可直接跳转；Cursor 等以根 README 与 `.cursor/` 规则/技能为准。 |
+| **边界说清楚** | 明确 ECC **做不到**什么（例如替代正式安全评审、各 harness 100% 行为一致），避免错误预期。 |
+
 ---
 
 ## Everything Claude Code（ECC）简介

@@ -42,6 +42,25 @@
 | Read in another language | [Traditional Chinese](docs/zh-TW/tutorial/README.md) · [Korean](docs/ko-KR/tutorial/README.md) · [Japanese](docs/ja-JP/tutorial/README.md) · [Turkish](docs/tr/tutorial/README.md) · [Brazilian Portuguese](docs/pt-BR/tutorial/README.md) |
 | Understand ECC upstream | The ecosystem below (badges, guides, changelog) reflects the **Everything Claude Code** project; treat this README as **learning-first**, then dive into guides and components. |
 
+### Pain points when using ECC “raw”
+
+- **Concept overload** — Skill, Command, Agent, Hook, Rule, and MCP each live in different folders; it is unclear what to read first or how they connect.  
+- **Harness fragmentation** — The same repo ships `.claude/`, `.cursor/`, `.opencode/`, `.codex-plugin/`, `.trae/`, `.kiro/`, etc.; each tool loads config differently, so copy-paste from one stack rarely works everywhere.  
+- **No obvious happy path** — Upstream docs and external guides are deep; without a short sequence (plan → test → review) you default to long chats and under-use slash commands and agents.  
+- **Silent failures** — Hooks and rules may not run in your IDE; symptoms look like “ECC does nothing” until you know where to check.  
+- **Security and keys** — MCP and scripts multiply surfaces; it is easy to misconfigure tokens or assume “installed plugin = audited app.”
+
+### What **every-claude-code-learning** adds on top of ECC
+
+This layer does **not** replace ECC; it **orients** you inside this repository:
+
+| You get… | How |
+|----------|-----|
+| **A fixed learning order** | Eight-part tutorials ([Simplified Chinese](docs/zh-CN/tutorial/README.md) + [other locales](docs/zh-CN/tutorial/README.md#其他语言版本与简体同步结构)) with labs (e.g. run the repo test suite, trace commands to agents via [COMMAND-AGENT-MAP](docs/COMMAND-AGENT-MAP.md)). |
+| **Mental model** | Clear mapping from concepts to directories (`agents/`, `skills/`, `commands/`, `hooks/`, `rules/`, `mcp-configs/`). |
+| **Per-tool entry points** | Pointers to bundled READMEs where they exist (e.g. [`.opencode/README.md`](.opencode/README.md), [`.trae/README.md`](.trae/README.md), [`.kiro/README.md`](.kiro/README.md), [`.codex-plugin/README.md`](.codex-plugin/README.md)) plus root README sections for Cursor/Claude Code. |
+| **Honest limits** | Plain language on what ECC does **not** solve (e.g. formal security sign-off, identical hook behavior across all harnesses). |
+
 ---
 
 ## Everything Claude Code (ECC)
